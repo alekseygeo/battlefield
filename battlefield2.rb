@@ -30,7 +30,7 @@ def initialize
     end  
 end
 
-def get_field # передаємо  @field в ship_place(ships_field), потім field = ships_field.get_field
+def get_field #передаємо  @field в ship_place(ships_field), потім field = ships_field.get_field
   @field
 end
 
