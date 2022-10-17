@@ -1,11 +1,12 @@
 class Train
+  attr_accessor :train_number
   def initialize(count_carriage)
     @train_number = rand(100..200)
     @count_c = count_carriage
     @carriages = []
     
     @count_c.times do
-      @carriages << RailwayCarriage.new(10, self)
+      @carriages << RailwayCarriage.new(self)
     end
     puts @carriages[0].coupe_count
   end
@@ -17,18 +18,18 @@ class Train
 end
 
 class RailwayCarriage
+  attr_accessor :train1, :train_number
   def initialize(count_coupe = 10, train)
     @coupe = []
     @count_co = count_coupe
-    @train = train
-    puts  self.train.train_number
-
+    @train1 = train
+    
     @count_co.times do
       @coupe << Coupe.new
-
     end
     
     puts @coupe[8].places[2]
+    puts  self.train1.train_number = 222
   end
   
  
