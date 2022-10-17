@@ -5,7 +5,7 @@ class Train
     @carriages = []
     
     @count_c.times do
-      @carriages << RailwayCarriage.new()
+      @carriages << RailwayCarriage.new(10, self)
     end
     puts @carriages[0].coupe_count
   end
@@ -17,9 +17,11 @@ class Train
 end
 
 class RailwayCarriage
-  def initialize(count_coupe = 10)
+  def initialize(count_coupe = 10, train)
     @coupe = []
     @count_co = count_coupe
+    @train = train
+    puts  self.train.train_number
 
     @count_co.times do
       @coupe << Coupe.new
