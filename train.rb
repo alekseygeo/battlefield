@@ -1,46 +1,54 @@
 class Train
-  def initialize(cc, co)
+  def initialize(count_carriage)
     @train_number = rand(100..200)
-    @route = "Lviv - Kyiv"
-    @railway_carriage = cc.count_carriages
-    @coupe = cc.count_coupes 
-    @coupe*=@railway_carriage
-    @places = co.count_places_coupe
-end
+    @count_c = count_carriage
+    @carriages = []
+    
+    @count_c.times do
+      @carriages << RailwayCarriage.new()
+    end
+    puts @carriages[0].coupe_count
+  end
 
-def print_train
-  puts "Train №#{@train_number }, route: #{@route}, count carriages: #{@railway_carriage}, count coupe: #{@coupe}, count places: #{@places} was created"  
-end
+  def create_train
+
+  end
 
 end
 
 class RailwayCarriage
-  def initialize(count_carriage)
-    @count_c = count_carriage
-    @number_c  = Array.new(@count_c) {|i| i + 1}
-  end
-  def count_carriages
-    return @count_c 
-  end
+  def initialize(count_coupe = 10)
+    @coupe = []
+    @count_co = count_coupe
 
-  def count_coupes
-    coupe = 10
+    @count_co.times do
+      @coupe << Coupe.new
+
+    end
+    
+    puts @coupe[8].places[2]
   end
+  
+ 
+  def coupe_count
+  return @count_co
+ end
+
 end
 
 class Coupe
-  def initialize(cc)
-    @places = 4 * cc.count_coupes
-    
+
+  def initialize()
+    @count_of_places = [1,2,3,4] 
   end
-  def count_places_coupe
-    return @places
-    
+
+  def places
+    return @count_of_places
   end
+
 end
 
-cc = RailwayCarriage.new(rand(10..20))
-co = Coupe.new(cc)
-t = Train.new(cc,co)
-co.count_places_coupe
-t.print_train
+
+#co = Coupe.new
+t = Train.new(2) # train with 2 carriages
+t.create_train
