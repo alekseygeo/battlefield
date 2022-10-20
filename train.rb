@@ -18,18 +18,18 @@ class Train
 end
 
 class RailwayCarriage
-  attr_accessor :train1, :train_number
+  attr_accessor :train
   def initialize(count_coupe = 10, train)
     @coupe = []
     @count_co = count_coupe
-    @train1 = train
+    @train = train
     
     @count_co.times do
       @coupe << Coupe.new
     end
     
     puts @coupe[8].places[2]
-    puts  self.train1.train_number = 222
+    puts  self.train.train_number = 222
   end
   
  
