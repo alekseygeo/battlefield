@@ -8,7 +8,7 @@ class Train
     @count_c.times do
       @carriages << RailwayCarriage.new(self)
     end
-    puts @carriages[0].coupe_count
+    puts "Count coupe: #{@carriages[0].coupe_count}"
   end
 
   def create_train
@@ -23,13 +23,20 @@ class RailwayCarriage
     @coupe = []
     @count_co = count_coupe
     @train = train
-    
+    x=1
+
     @count_co.times do
       @coupe << Coupe.new
     end
-    
-    puts @coupe[8].places[2]
-    puts  self.train.train_number = 222
+  
+    @count_co.times do |em|
+      @coupe[0].places.length().times do |el|
+     puts @coupe[em].places[el] = x
+      x+=1
+      end
+    end
+    puts "Купе 3, Місце 3 має номер:#{@coupe[2].places[2]}"
+    puts  "Train number: #{self.train.train_number = 222}"
   end
   
  
@@ -40,7 +47,6 @@ class RailwayCarriage
 end
 
 class Coupe
-
   def initialize()
     @count_of_places = [1,2,3,4] 
   end
